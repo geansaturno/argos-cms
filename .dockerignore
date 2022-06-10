@@ -1,2 +1,5 @@
-.keystone
-node_modules
+.keystone/*
+node_modules/*
+Dockerfile
+yarn.lock
+README.md
