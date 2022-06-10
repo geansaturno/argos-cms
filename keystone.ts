@@ -14,13 +14,20 @@ import { lists } from './schema';
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from './auth';
 
+console.log(process.env.HOST_NAME)
+
+const host = process.env.HOST_NAME || `localhost`
+const url = `postgres://argos-db:argos-db@${host}:5432/keystone`
+
+console.log(url)
+
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
   config({
     // the db sets the database provider - we're using sqlite for the fastest startup experience
     db: {
       provider: 'postgresql',
-      url: 'postgres://postgres:argos@localhost:5432/keystone',
+      url,
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
     ui: {

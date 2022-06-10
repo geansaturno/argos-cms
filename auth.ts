@@ -13,6 +13,7 @@ import { createAuth } from '@keystone-6/auth';
 import { statelessSessions } from '@keystone-6/core/session';
 
 let sessionSecret = process.env.SESSION_SECRET;
+console.log('sessionSecret', sessionSecret)
 
 // Here is a best practice! It's fine to not have provided a session secret in dev,
 // however it should always be there in production.
